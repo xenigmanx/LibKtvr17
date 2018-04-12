@@ -8,14 +8,13 @@ package interfaces;
 import entity.Book;
 import entity.History;
 import entity.Reader;
-import java.util.List;
 
 /**
  *
  * @author Melnikov
  */
 public interface Insertable {
-    public List<Book> addBooks();
-    public List<Reader> addReaders();
-    public List<History> addHistories();
+    public Book addBook();
+    public Reader addReader();
+    public History addHistory();
 }
