@@ -37,8 +37,8 @@ public class AddHistory {
         String numReader = scanner.nextLine();
         System.out.println("№ книги:");
         String numBook = scanner.nextLine();
-        history.setBook(books.get(new Integer(numBook)));
-        history.setReader(readers.get(new Integer(numReader)));
+        history.setBook(books.get(new Integer(numBook)-1));
+        history.setReader(readers.get(new Integer(numReader)-1));
         Calendar c = new GregorianCalendar();
         history.setDateBegin(c.getTime());
         return history;

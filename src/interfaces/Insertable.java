@@ -8,6 +8,7 @@ package interfaces;
 import entity.Book;
 import entity.History;
 import entity.Reader;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,5 @@ import entity.Reader;
 public interface Insertable {
     public Book addBook();
     public Reader addReader();
-    public History addHistory();
+    public History addHistory(List<Book> books, List<Reader>readers);
 }

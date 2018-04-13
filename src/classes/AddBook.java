@@ -6,9 +6,7 @@
 package classes;
 
 import entity.Book;
-import interfaces.Insertable;
 import java.util.Scanner;
-import libproptvr16.ConsoleInsert;
 
 /**
  *

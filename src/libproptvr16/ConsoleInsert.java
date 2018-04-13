@@ -13,6 +13,7 @@ import entity.Book;
 import entity.History;
 import entity.Reader;
 import interfaces.Insertable;
+import java.util.List;
 
 /**
  *
@@ -33,7 +34,7 @@ public class ConsoleInsert implements Insertable{
     }
 
     @Override
-    public History addHistory() {
+    public History addHistory(List<Book> books, List<Reader>readers) {
         AddHistory addHistory = new AddHistory();
         return addHistory.add(books, readers);
     }

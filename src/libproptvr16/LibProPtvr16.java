@@ -5,12 +5,6 @@
  */
 package libproptvr16;
 
-import entity.Book;
-import entity.History;
-import entity.Reader;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 /**
  *
  * @author Melnikov
