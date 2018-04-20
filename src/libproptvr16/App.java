@@ -24,6 +24,15 @@ public class App {
     public List<Book> books = new ArrayList<>();
     public List<Reader> readers = new ArrayList<>();
     public List<History> histories = new ArrayList<>();
+
+    public App() {
+        SaveToFile saveToFile = new SaveToFile();
+        this.books=saveToFile.loadBooks();
+        SaveToFile saveToFile1 = new SaveToFile();
+        this.readers = saveToFile1.loadReaders();
+        SaveToFile saveToFile2 = new SaveToFile();
+        this.histories = saveToFile2.loadHistories();
+    }
     
     public void run(){
         Scanner scanner = new Scanner(System.in);
@@ -43,15 +52,24 @@ public class App {
                     break;
                 case "1":
                     AddBook addBook = new AddBook();
+                    SaveToFile saveToFile = new SaveToFile();
                     this.books.add(addBook.add());
+                    saveToFile.saveBooks(books);
+                    System.out.println("--- Книга добавлена ----");
                     break;
                 case "2":
                     AddReader addReader = new AddReader();
+                    SaveToFile saveToFile1 = new SaveToFile();
                     this.readers.add(addReader.add());
+                    saveToFile1.saveReaders(readers);
+                    System.out.println("---- Читатель добавлен----");
                     break; 
                 case "3":
                     AddHistory addHistory = new AddHistory();
+                    SaveToFile saveToFile2 = new SaveToFile();
                     this.histories.add(addHistory.add(books,readers));
+                    saveToFile2.saveHistories(histories);
+                    System.out.println("----Книга выдана пользователю ----");
                     break; 
                 default:
                     System.out.println("Выберите действие из списка!");
