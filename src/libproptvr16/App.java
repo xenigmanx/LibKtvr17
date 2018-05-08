@@ -5,10 +5,6 @@
  */
 package libproptvr16;
 
-import classes.AddBook;
-import classes.AddReader;
-import classes.BackBook;
-import classes.TakeBook;
 import entity.Book;
 import entity.History;
 import entity.Reader;
@@ -22,11 +18,20 @@ import java.util.Scanner;
  * @author Melnikov
  */
 public class App {
-    
     public List<Book> books = new ArrayList<>();
     public List<Reader> readers = new ArrayList<>();
     public List<History> histories = new ArrayList<>();
     public Insertable insertData = new ConsoleInsert();
+    public SaveToFile saveToFile;
+
+    public App() {
+        this.saveToFile = new SaveToFile();
+        this.books=saveToFile.loadBooks();
+        this.readers = saveToFile.loadReaders();
+        this.histories = saveToFile.loadHistories();
+    }
+    
+
     public void run(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------Наша библиотека----------");
@@ -46,20 +51,25 @@ public class App {
                     break;
                 case "1":
                     this.books.add(insertData.addBook());
+                    saveToFile.saveBooks(books);
                     System.out.println("Книга добавлена!");
                     break;
                 case "2":
                     this.readers.add(insertData.addReader());
+                    saveToFile.saveReaders(readers);
                     System.out.println("Читатель добавлен!");
                     break; 
                 case "3":
                     this.histories.add(insertData.takeBook(books,readers));
+                    saveToFile.saveHistories(histories);
                     System.out.println("Книга выдана пользователю!");
                     break;
                 case "4":
                     this.histories.add(insertData.backBook(histories));
+                    saveToFile.saveHistories(histories);
                     System.out.println("Книга возвращена в библиотеку!");
                     break;
+
                 default:
                     System.out.println("Выберите действие из списка!");
                     System.out.println("----------------------------");
