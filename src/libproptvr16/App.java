@@ -6,11 +6,13 @@
 package libproptvr16;
 
 import classes.AddBook;
-import classes.AddHistory;
 import classes.AddReader;
+import classes.BackBook;
+import classes.TakeBook;
 import entity.Book;
 import entity.History;
 import entity.Reader;
+import interfaces.Insertable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,7 +26,7 @@ public class App {
     public List<Book> books = new ArrayList<>();
     public List<Reader> readers = new ArrayList<>();
     public List<History> histories = new ArrayList<>();
-    
+    public Insertable insertData = new ConsoleInsert();
     public void run(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("--------Наша библиотека----------");
@@ -35,6 +37,7 @@ public class App {
             System.out.println("1 - для добавления книги");
             System.out.println("2 - для добавления читателя");
             System.out.println("3 - для выдачи книги пользовтелю");
+            System.out.println("4 - возвращение книги");
             String action = scanner.next();
 
             switch (action) {
@@ -42,17 +45,21 @@ public class App {
                     repeat = "n";
                     break;
                 case "1":
-                    AddBook addBook = new AddBook();
-                    this.books.add(addBook.add());
+                    this.books.add(insertData.addBook());
+                    System.out.println("Книга добавлена!");
                     break;
                 case "2":
-                    AddReader addReader = new AddReader();
-                    this.readers.add(addReader.add());
+                    this.readers.add(insertData.addReader());
+                    System.out.println("Читатель добавлен!");
                     break; 
                 case "3":
-                    AddHistory addHistory = new AddHistory();
-                    this.histories.add(addHistory.add(books,readers));
-                    break; 
+                    this.histories.add(insertData.takeBook(books,readers));
+                    System.out.println("Книга выдана пользователю!");
+                    break;
+                case "4":
+                    this.histories.add(insertData.backBook(histories));
+                    System.out.println("Книга возвращена в библиотеку!");
+                    break;
                 default:
                     System.out.println("Выберите действие из списка!");
                     System.out.println("----------------------------");

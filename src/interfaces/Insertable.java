@@ -17,5 +17,6 @@ import java.util.List;
 public interface Insertable {
     public Book addBook();
     public Reader addReader();
-    public History addHistory(List<Book> books, List<Reader>readers);
+    public History takeBook(List<Book> books, List<Reader>readers);
+    public History backBook(List<History> histories);
 }

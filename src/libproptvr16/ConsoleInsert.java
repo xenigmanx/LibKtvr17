@@ -7,8 +7,9 @@ package libproptvr16;
 
 
 import classes.AddBook;
-import classes.AddHistory;
 import classes.AddReader;
+import classes.BackBook;
+import classes.TakeBook;
 import entity.Book;
 import entity.History;
 import entity.Reader;
@@ -34,9 +35,15 @@ public class ConsoleInsert implements Insertable{
     }
 
     @Override
-    public History addHistory(List<Book> books, List<Reader>readers) {
-        AddHistory addHistory = new AddHistory();
-        return addHistory.add(books, readers);
+    public History takeBook(List<Book> books, List<Reader> readers) {
+        TakeBook takeBook = new TakeBook();
+        return takeBook.add(books, readers);
+    }
+
+    @Override
+    public History backBook(List<History> histories) {
+        BackBook backBook = new BackBook();
+        return backBook.add(histories);
     }
 
     
