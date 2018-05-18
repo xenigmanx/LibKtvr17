@@ -6,10 +6,10 @@
 package libproptvr16;
 
 
-import classes.AddBook;
-import classes.AddReader;
-import classes.BackBook;
-import classes.TakeBook;
+import classes.BookCreator;
+import classes.ReaderCreator;
+import classes.BackerBook;
+import classes.TakerBook;
 import entity.Book;
 import entity.History;
 import entity.Reader;
@@ -20,30 +20,30 @@ import java.util.List;
  *
  * @author Melnikov
  */
-public class ConsoleInsert implements Insertable{
+public class ConsoleInserter implements Insertable{
 
     @Override
     public Book addBook() {
-        AddBook addBook = new AddBook();
-        return addBook.add();
+        BookCreator bookCreator = new BookCreator();
+        return bookCreator.add();
     }
 
     @Override
     public Reader addReader() {
-        AddReader addReader = new AddReader();
-        return addReader.add();
+        ReaderCreator readerCreator = new ReaderCreator();
+        return readerCreator.add();
     }
 
     @Override
     public History takeBook(List<Book> books, List<Reader> readers) {
-        TakeBook takeBook = new TakeBook();
-        return takeBook.add(books, readers);
+        TakerBook takerBook = new TakerBook();
+        return takerBook.add(books, readers);
     }
 
     @Override
     public History backBook(List<History> histories) {
-        BackBook backBook = new BackBook();
-        return backBook.add(histories);
+        BackerBook backerBook = new BackerBook();
+        return backerBook.add(histories);
     }
 
     

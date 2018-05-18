@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Class run application in do loop.
+ * App worked while var repeat="r"
  */
 package libproptvr16;
 
@@ -21,14 +20,17 @@ public class App {
     public List<Book> books = new ArrayList<>();
     public List<Reader> readers = new ArrayList<>();
     public List<History> histories = new ArrayList<>();
-    public Insertable insertData = new ConsoleInsert();
-    public SaveToFile saveToFile;
+    public Insertable inserter = new ConsoleInserter();
+    //SaverToFile необходимо реализовать через интерфейс Saveble
+    //что то типа public Saveble saver = new SaverToFile();
+    // и далее в коде использовать saver вместо saverToFile
+    public SaverToFile saverToFile;
 
     public App() {
-        this.saveToFile = new SaveToFile();
-        this.books=saveToFile.loadBooks();
-        this.readers = saveToFile.loadReaders();
-        this.histories = saveToFile.loadHistories();
+        this.saverToFile = new SaverToFile();
+        this.books=saverToFile.loadBooks();
+        this.readers = saverToFile.loadReaders();
+        this.histories = saverToFile.loadHistories();
     }
     
 
@@ -50,23 +52,23 @@ public class App {
                     repeat = "n";
                     break;
                 case "1":
-                    this.books.add(insertData.addBook());
-                    saveToFile.saveBooks(books);
+                    this.books.add(inserter.addBook());
+                    saverToFile.saveBooks(books);
                     System.out.println("Книга добавлена!");
                     break;
                 case "2":
-                    this.readers.add(insertData.addReader());
-                    saveToFile.saveReaders(readers);
+                    this.readers.add(inserter.addReader());
+                    saverToFile.saveReaders(readers);
                     System.out.println("Читатель добавлен!");
                     break; 
                 case "3":
-                    this.histories.add(insertData.takeBook(books,readers));
-                    saveToFile.saveHistories(histories);
+                    this.histories.add(inserter.takeBook(books,readers));
+                    saverToFile.saveHistories(histories);
                     System.out.println("Книга выдана пользователю!");
                     break;
                 case "4":
-                    this.histories.add(insertData.backBook(histories));
-                    saveToFile.saveHistories(histories);
+                    this.histories.add(inserter.backBook(histories));
+                    saverToFile.saveHistories(histories);
                     System.out.println("Книга возвращена в библиотеку!");
                     break;
 

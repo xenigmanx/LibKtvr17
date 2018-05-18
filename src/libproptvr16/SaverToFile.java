@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  *
  * @author Melnikov
  */
-public class SaveToFile implements Saveble{
+public class SaverToFile implements Saveble{
 
     @Override
     public void saveHistories(List<History> histories) {
@@ -37,9 +37,9 @@ public class SaveToFile implements Saveble{
             oos.flush();
             oos.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Нет такого файла", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Нет такого файла", ex);
         } catch (IOException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу записать в файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу записать в файл", ex);
         }
     }
 
@@ -54,9 +54,9 @@ public class SaveToFile implements Saveble{
             oos.flush();
             oos.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Нет такого файла", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Нет такого файла", ex);
         } catch (IOException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу записать в файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу записать в файл", ex);
         }
     }
 
@@ -72,9 +72,9 @@ public class SaveToFile implements Saveble{
             oos.flush();
             oos.close();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Нет такого файла", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Нет такого файла", ex);
         } catch (IOException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу записать в файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу записать в файл", ex);
         }
         
     }
@@ -89,11 +89,11 @@ public class SaveToFile implements Saveble{
             oin = new ObjectInputStream(fis);
             histories = (List<History>) oin.readObject();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу отрыть файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу отрыть файл", ex);
         } catch (IOException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу прочесть файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу прочесть файл", ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Нет такого класса", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Нет такого класса", ex);
         }
         return histories;
     }
@@ -108,11 +108,11 @@ public class SaveToFile implements Saveble{
             oin = new ObjectInputStream(fis);
             readers = (List<Reader>) oin.readObject();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу отрыть файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу отрыть файл", ex);
         } catch (IOException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу прочесть файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу прочесть файл", ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Нет такого класса", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Нет такого класса", ex);
         }
         return readers;
     }
@@ -127,11 +127,11 @@ public class SaveToFile implements Saveble{
             oin = new ObjectInputStream(fis);
             books = (List<Book>) oin.readObject();
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу отрыть файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу отрыть файл", ex);
         } catch (IOException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Не могу прочесть файл", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Не могу прочесть файл", ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Нет такого класса", ex);
+            Logger.getLogger(SaverToFile.class.getName()).log(Level.SEVERE, "Нет такого класса", ex);
         }
         return books;
     }

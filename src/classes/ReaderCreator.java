@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Melnikov
  */
-public class AddReader {
+public class ReaderCreator {
     public Reader add(){
         Reader reader = new Reader();
         Scanner scanner = new Scanner(System.in);

@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Melnikov
  */
-public class AddBook {
+public class BookCreator {
     
     public Book add(){
         Book book = new Book();

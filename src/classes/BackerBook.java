@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Melnikov
  */
-public class BackBook {
+public class BackerBook {
     public History add(List<History> histories){
         History history = new History();
         Scanner scanner = new Scanner(System.in);
